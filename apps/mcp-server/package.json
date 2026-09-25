@@ -21,6 +21,8 @@
   },
   "devDependencies": {
     "@telemetryspend/cost-engine": "*",
-    "tsup": "^8.5.1"
+    "@types/node": "^22.15.0",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3"
   }
 }
