@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  accent-color: #d4d4d8;
+  caret-color: #ededef;
+  scrollbar-color: #3f3f46 #0a0a0b;
+}
+
+body {
+  @apply bg-canvas text-fg antialiased;
+}
+
+::selection {
+  background: rgb(237 237 239 / 0.22);
+  color: #ffffff;
+}
+
+/* Keyboard focus must read on every dark surface; mouse clicks stay quiet. */
+:focus-visible {
+  outline: 2px solid #ededef;
+  outline-offset: 2px;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}

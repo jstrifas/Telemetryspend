@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "telemetryspend": {
+      "command": "node",
+      "args": [
+        "/ABSOLUTE/PATH/TO/telemetryspend/apps/mcp-server/dist/index.js"
+      ]
+    }
+  }
+}

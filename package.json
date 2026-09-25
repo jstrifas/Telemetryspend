@@ -1,0 +1,22 @@
+{
+  "name": "telemetryspend",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Observability cost calculator: a Next.js web app and an MCP server sharing one cost engine.",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "scripts": {
+    "dev": "npm run dev --workspace=apps/web",
+    "build": "npm run build --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "typescript": "^5.9.3"
+  }
+}
