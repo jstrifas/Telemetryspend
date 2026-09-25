@@ -46,17 +46,20 @@ export function CheapestVendorCallout({ comparison }: { comparison: VendorCompar
 
   if (!diverges) {
     return (
-      <section className="rounded-lg border border-line bg-surface p-4">
-        <h2 className="text-base font-semibold text-fg">Cheapest vendor</h2>
-        <p className="mt-2 text-sm text-muted">
-          <span className="text-fg">{VENDOR_LABELS[lowCardinalityWinner]}</span> is cheapest in every cardinality
-          scenario.
+      <section aria-label="Cheapest vendor" className="rounded-lg border border-line px-4 py-3 text-sm text-muted">
+        <p>
+          Cheapest across all scenarios: <span className="text-fg">{VENDOR_LABELS[lowCardinalityWinner]}</span>{' '}
+          (<span className="tabular font-mono text-fg">{formatUsd(totalFor(lowCardinalityWinner, 'bounded_usd'))}</span>{' '}
+          at bounded scope).
         </p>
-        {rows}
-        {gaps.length > 0 && <p className="mt-3 text-xs text-faint">{gaps.join(' ')}</p>}
+        {gaps.length > 0 && <p className="mt-1 text-xs text-faint">{gaps.join(' ')}</p>}
       </section>
     );
   }
+
+  // The crossover is fixed by the two price schedules; where this profile's
+  // scenarios sit relative to it is what moves with the inputs.
+  const series = vendors.find((b) => b.vendor === lowCardinalityWinner)?.cardinality;
 
   return (
     <section role="status" className="rounded-lg border border-amber-400/50 bg-amber-400/[0.06] p-5">
@@ -82,6 +85,14 @@ export function CheapestVendorCallout({ comparison }: { comparison: VendorCompar
           <p>
             Metrics costs cross over at{' '}
             <span className="font-mono text-fg">~{formatSeries(crossover)}</span> series.
+            {series && (
+              <>
+                {' '}
+                This profile&apos;s bounded scenario has{' '}
+                <span className="font-mono text-fg">{formatSeries(series.bounded_series)}</span>; uncapped has{' '}
+                <span className="font-mono text-fg">{formatSeries(series.uncapped_series)}</span>.
+              </>
+            )}
           </p>
         )}
         {gaps.length > 0 && <p className="text-xs text-faint">{gaps.join(' ')}</p>}

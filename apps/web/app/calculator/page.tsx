@@ -59,6 +59,10 @@ export default function CalculatorPage() {
         <h1 className="text-xl font-semibold tracking-tight">Cost calculator</h1>
         <p className="font-mono text-xs text-faint">stage 3 · datadog + cloudwatch</p>
       </div>
+      <p className="mt-2 max-w-3xl text-xs leading-relaxed text-faint">
+        Estimates use published vendor pricing (subject to change). Not affiliated with Datadog, AWS, Grafana Labs, or
+        Honeycomb. Educational planning tool — not a quote.
+      </p>
 
       <div className="mt-8 grid gap-8 md:grid-cols-[300px_1fr] lg:grid-cols-[360px_1fr]">
         {/* Pinned with its own scroll so the results stay in view while any slider moves. */}

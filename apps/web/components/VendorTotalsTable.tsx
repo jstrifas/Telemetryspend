@@ -19,10 +19,10 @@ export function VendorTotalsTable({ comparison }: { comparison: VendorComparison
             <th scope="col" className="pb-2 pr-4 text-left font-normal">
               Vendor
             </th>
-            <th scope="col" className="hidden pb-2 pl-4 text-right font-normal sm:table-cell">
+            <th scope="col" className="hidden pb-2 pl-4 text-right font-normal lg:table-cell">
               Logs
             </th>
-            <th scope="col" className="hidden pb-2 pl-4 text-right font-normal sm:table-cell">
+            <th scope="col" className="hidden pb-2 pl-4 text-right font-normal lg:table-cell">
               Traces
             </th>
             {SCENARIOS.map((scenario) => (
@@ -41,8 +41,8 @@ export function VendorTotalsTable({ comparison }: { comparison: VendorComparison
               <th scope="row" className="py-2.5 pr-2 text-left font-sans font-normal text-fg sm:pr-4">
                 {VENDOR_LABELS[breakdown.vendor]}
               </th>
-              <td className="hidden py-2.5 pl-4 text-right text-muted sm:table-cell">{formatUsd(breakdown.logs_usd)}</td>
-              <td className="hidden py-2.5 pl-4 text-right text-muted sm:table-cell">{formatUsd(breakdown.traces_usd)}</td>
+              <td className="hidden py-2.5 pl-4 text-right text-muted lg:table-cell">{formatUsd(breakdown.logs_usd)}</td>
+              <td className="hidden py-2.5 pl-4 text-right text-muted lg:table-cell">{formatUsd(breakdown.traces_usd)}</td>
               {SCENARIOS.map((scenario) => {
                 const cheapest = compared && comparison.cheapest_by_scenario[scenario.key] === breakdown.vendor;
                 return (
